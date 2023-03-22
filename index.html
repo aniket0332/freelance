@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css">
+    <script src="index.js"></script>
+
+
+</head>
+<body>
+    <h1 id="h1">VCET Major Project Group - 18</h1>
+    <h2>Approximate Estimate (Plinth Area Method)</h2>
+    <div>
+        <div id="line">
+        <p>Carpet Area = &nbsp<input type="number" id="ca" name="ca">&nbsp m2  &nbsp</p> 
+        <p> Cost of construction = &nbsp &nbsp <input type="number" id="cc" name="cc">&nbsp Rs/m2 &nbsp<button id="go" onclick="load();"> Enter </button></p>
+        </div>
+        <p>PA = &nbsp<span class = "hide" id="pa"></span>&nbsp m2 </p>
+        <div id="line">
+        <p>SuperStructure cost = &nbsp<span class = "hide" id="ssc"></span> &nbsp Rs. </p>
+        <p> Call of Contingency = &nbsp<span class = "hide" id="coct"></span> &nbsp Rs. </p>
+        </div>
+        <div id="line">
+        <p>Foundation cost = &nbsp<span class = "hide" id="fc"></span>&nbsp Rs. </p>
+        <p>Work charge = &nbsp<span class = "hide" id="wc"></span>&nbsp Rs.</p>
+        </div>
+        <div id="line">
+        <p>Cost of construction = &nbsp<span class = "hide" id="coc"></span>&nbsp Rs. </p>
+        <p>Total cost = &nbsp<span class = "hide" id="tc"></span>&nbsp Rs. </p>
+        </div>
+        <p>Cost of Services = &nbsp<span class = "hide" id="cs"></span>&nbsp Rs. </p>
+        <p>Overall Cost = &nbsp<span class = "hide" id="oc"></span>&nbsp Rs. </p>
+        <Script>
+        var ca = document.getElementById("ca");
+        var cc = document.getElementById("cc");
+        
+        var pa = ca/0.7;
+        var ssc = cc*pa;
+        var fc = 0.2*ssc;
+        var coc = ssc + fc;
+        var cs = 0.25*coc;
+        var oc = coc + cs;
+        var coct = 0.05*oc;
+        var wc = 0.1*oc;
+        var tc = oc + coct + wc;
+
+        // document.getElementById(`pa`).innerText;
+        // document.getElementById(`ssc`).innerText = " Rs.";
+        // document.getElementById(`fc`).innerText = fc+" Rs.";
+        // document.getElementById(`coc`).innerText = coc+" Rs.";
+        // document.getElementById(`cs`).innerText = cs+" Rs."; 
+        // document.getElementById(`oc`).innerText = oc+" Rs.";
+        // document.getElementById(`coct`).innerText = coct+" Rs.";
+        // document.getElementById(`wc`).innerText = wc+" Rs.";
+        // document.getElementById(`tc`).innerText = tc+" Rs.";
+  cc.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    document.getElementById("go").click();
+  }
+});
+ca.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    document.getElementById("go").click();
+  }
+});
+// cc.addEventListener("keypress", function(event) {
+//   if (event.key === "Enter") {
+//     document.getElementById("go").click();
+//   }
+// });
+        </Script>
+    </div>
+</body>
+</html>
